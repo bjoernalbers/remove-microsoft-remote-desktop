@@ -1,7 +1,6 @@
 PROJECT_NAME		:= retire-microsoft-remote-desktop
 IDENTIFIER		:= de.bjoernalbers.$(PROJECT_NAME)
-#VERSION		:= $(shell git describe --tags | tr -d v)
-VERSION			:= 0.0.1
+VERSION			:= $(shell git describe --tags | tr -d v)
 SCRIPTS_DIR		:= scripts
 PAYLOAD_DIR		:= $(shell mktemp -d)
 BUILD_DIR		:= $(shell mktemp -d)
