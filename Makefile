@@ -1,0 +1,27 @@
+PROJECT_NAME		:= retire-microsoft-remote-desktop
+IDENTIFIER		:= de.bjoernalbers.$(PROJECT_NAME)
+#VERSION		:= $(shell git describe --tags | tr -d v)
+VERSION			:= 0.0.1
+SCRIPTS_DIR		:= scripts
+PAYLOAD_DIR		:= $(shell mktemp -d)
+BUILD_DIR		:= $(shell mktemp -d)
+DIST_DIR		:= dist
+COMPONENT_PKG		:= $(BUILD_DIR)/$(PROJECT_NAME).pkg
+DISTRIBUTION_PKG	:= $(DIST_DIR)/$(PROJECT_NAME)-$(VERSION).pkg
+
+$(DISTRIBUTION_PKG):
+	test -n "$(VERSION)"
+	pkgbuild \
+		--identifier "$(IDENTIFIER)" \
+		--version "$(VERSION)" \
+		--scripts "$(SCRIPTS_DIR)" \
+		--sign "$(PKG_SIGN_IDENTITY)" \
+		--quiet \
+		--root "$(PAYLOAD_DIR)" \
+		"$(COMPONENT_PKG)"
+	productbuild \
+		--package "$(COMPONENT_PKG)" \
+		--sign "$(PKG_SIGN_IDENTITY)" \
+		--quiet \
+		"$@"
+	rm -rf "$(BUILD_DIR)" "$(PAYLOAD_DIR)"
