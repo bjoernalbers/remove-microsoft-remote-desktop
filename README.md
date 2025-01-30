@@ -10,3 +10,8 @@ https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-app-general-
 But it forgot to actually delete "Microsoft Remote Desktop.app" during the update,
 so that users might still use the outdated app.
 This package uninstalls it in order to fix this security issue.
+
+## Usage
+
+1. Run `make`
+2. Install the package to retire the app
