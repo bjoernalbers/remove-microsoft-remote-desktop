@@ -15,7 +15,7 @@ if [ ! -d "${install_dir}/${microsoft_remote_desktop_app}" ]; then
 fi
 
 if [ ! -d "${install_dir}/${windows_app}" ]; then
-	echo "Refuse to retire '${microsoft_remote_desktop_app}' because '${windows_app}' is missing."
+	echo "Refuse to remove '${microsoft_remote_desktop_app}' because '${windows_app}' is missing."
 	exit 1
 fi
 
