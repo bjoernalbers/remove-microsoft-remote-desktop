@@ -1,4 +1,5 @@
 #!/bin/sh
+# Removes 'Microsoft Remote Desktop.app' if 'Windows App.app' is installed.
 
 set -u
 
