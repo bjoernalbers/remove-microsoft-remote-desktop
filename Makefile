@@ -8,6 +8,10 @@ DIST_DIR		:= dist
 COMPONENT_PKG		:= $(BUILD_DIR)/$(PROJECT_NAME).pkg
 DISTRIBUTION_PKG	:= $(DIST_DIR)/$(PROJECT_NAME)-$(VERSION).pkg
 
+ifndef PKG_SIGN_IDENTITY
+$(error PKG_SIGN_IDENTITY is not set)
+endif
+
 $(DISTRIBUTION_PKG):
 	test -n "$(VERSION)"
 	pkgbuild \
