@@ -21,4 +21,5 @@ fi
 
 pkill -x "${microsoft_remote_desktop_process}"
 rm -rf "${install_dir}/${microsoft_remote_desktop_app}"
+echo "'${microsoft_remote_desktop_app}' successfully removed."
 exit 0
