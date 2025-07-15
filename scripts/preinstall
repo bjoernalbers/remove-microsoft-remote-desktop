@@ -9,7 +9,10 @@ windows_app="Windows App.app"
 microsoft_remote_desktop_app="Microsoft Remote Desktop.app"
 microsoft_remote_desktop_process="Microsoft Remote Desktop"
 
-[ ! -d "${install_dir}/${microsoft_remote_desktop_app}" ] && exit 0
+if [ ! -d "${install_dir}/${microsoft_remote_desktop_app}" ]; then
+	echo "No '${microsoft_remote_desktop_app}' found. Nothing to remove."
+	exit 0
+fi
 
 if [ ! -d "${install_dir}/${windows_app}" ]; then
 	echo "Refuse to retire '${microsoft_remote_desktop_app}' because '${windows_app}' is missing."
