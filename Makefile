@@ -12,8 +12,11 @@ ifndef PKG_SIGN_IDENTITY
 $(error PKG_SIGN_IDENTITY is not set)
 endif
 
+ifeq ($(strip $(VERSION)),)
+$(error No git tag found to determine version)
+endif
+
 $(DISTRIBUTION_PKG):
-	test -n "$(VERSION)"
 	pkgbuild \
 		--identifier "$(IDENTIFIER)" \
 		--version "$(VERSION)" \
