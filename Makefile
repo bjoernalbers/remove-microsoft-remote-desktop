@@ -25,6 +25,7 @@ $(DISTRIBUTION_PKG):
 		--quiet \
 		--root "$(PAYLOAD_DIR)" \
 		"$(COMPONENT_PKG)"
+	mkdir -p "$(DIST_DIR)"
 	productbuild \
 		--package "$(COMPONENT_PKG)" \
 		--sign "$(PKG_SIGN_IDENTITY)" \
