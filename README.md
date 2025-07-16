@@ -12,7 +12,7 @@ The Windows App gets installed as part of an update of Microsoft Remote Desktop.
 However, the obsolete Microsoft Remote Desktop is not deleted automatically -
 users have to delete it manually.
 
-This package takes retires Microsoft Remote Desktop.
+This package retires Microsoft Remote Desktop.
 It was build for Mac Administrators who want to speed up the migration to
 Windows App or don't want to leave an outdated app that might become a security
 problem.
