@@ -5,7 +5,7 @@ set -u
 
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin
 
-install_dir="$3/Applications"
+install_dir="${3:-/}/Applications"
 windows_app="Windows App.app"
 microsoft_remote_desktop_app="Microsoft Remote Desktop.app"
 microsoft_remote_desktop_process="Microsoft Remote Desktop"
