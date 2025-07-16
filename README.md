@@ -1,7 +1,7 @@
-# Retire Microsoft Remote Desktop
+# Remove Microsoft Remote Desktop from macOS
 
-A macOS Package to remove the obsolete "Microsoft Remote Desktop.app" if its
-successor "Windows App.app" has already been installed.
+A macOS package to automatically uninstall the legacy
+“Microsoft Remote Desktop” app once the new “Windows App” is installed.
 
 ## Motivation
 

@@ -1,4 +1,4 @@
-PROJECT_NAME		:= retire-microsoft-remote-desktop
+PROJECT_NAME		:= remove-microsoft-remote-desktop
 IDENTIFIER		:= de.bjoernalbers.$(PROJECT_NAME)
 VERSION			:= $(shell git describe --tags | tr -d v)
 SCRIPTS_DIR		:= scripts
