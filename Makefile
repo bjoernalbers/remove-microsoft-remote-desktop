@@ -4,9 +4,8 @@ VERSION			:= $(shell git describe --tags | tr -d v)
 SCRIPTS_DIR		:= scripts
 PAYLOAD_DIR		:= $(shell mktemp -d)
 BUILD_DIR		:= $(shell mktemp -d)
-DIST_DIR		:= dist
 COMPONENT_PKG		:= $(BUILD_DIR)/$(PROJECT_NAME).pkg
-DISTRIBUTION_PKG	:= $(DIST_DIR)/$(PROJECT_NAME).pkg
+DISTRIBUTION_PKG	:= $(PROJECT_NAME).pkg
 
 ifndef PKG_SIGN_IDENTITY
 $(error PKG_SIGN_IDENTITY is not set)
@@ -25,7 +24,6 @@ build:
 		--quiet \
 		--root "$(PAYLOAD_DIR)" \
 		"$(COMPONENT_PKG)"
-	mkdir -p "$(DIST_DIR)"
 	productbuild \
 		--package "$(COMPONENT_PKG)" \
 		--sign "$(PKG_SIGN_IDENTITY)" \
