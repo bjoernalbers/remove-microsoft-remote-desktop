@@ -1,5 +1,5 @@
 #!/bin/sh
-# Removes 'Microsoft Remote Desktop.app' if 'Windows App.app' is installed.
+# Remove 'Microsoft Remote Desktop.app' if 'Windows App.app' is installed.
 
 set -u
 
@@ -10,16 +10,19 @@ windows_app="Windows App.app"
 microsoft_remote_desktop_app="Microsoft Remote Desktop.app"
 microsoft_remote_desktop_process="Microsoft Remote Desktop"
 
+# Exit if Microsoft Remote Desktop is not installed.
 if [ ! -d "${install_dir}/${microsoft_remote_desktop_app}" ]; then
 	echo "'${microsoft_remote_desktop_app}' not found. Nothing to remove."
 	exit 0
 fi
 
+# Abort with error if Windows App is not installed yet.
 if [ ! -d "${install_dir}/${windows_app}" ]; then
 	echo "'${microsoft_remote_desktop_app}' not removed because '${windows_app}' is missing."
 	exit 1
 fi
 
+# Quit and remove Microsoft Remote Desktop.
 pkill -x "${microsoft_remote_desktop_process}"
 rm -rf "${install_dir:?}/${microsoft_remote_desktop_app}"
 echo "'${microsoft_remote_desktop_app}' successfully removed."
