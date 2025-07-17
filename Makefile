@@ -30,5 +30,10 @@ build:
 		--quiet \
 		"$(DISTRIBUTION_PKG)"
 	rm -rf "$(BUILD_DIR)" "$(PAYLOAD_DIR)"
+	xcrun notarytool submit "$(DISTRIBUTION_PKG)" \
+		--keychain-profile "default" \
+		--wait
+	xcrun stapler staple "$(DISTRIBUTION_PKG)"
+	spctl --assess --type install "$(DISTRIBUTION_PKG)"
 
 .PHONY: build
