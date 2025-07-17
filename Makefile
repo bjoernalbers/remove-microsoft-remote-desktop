@@ -6,7 +6,7 @@ PAYLOAD_DIR		:= $(shell mktemp -d)
 BUILD_DIR		:= $(shell mktemp -d)
 DIST_DIR		:= dist
 COMPONENT_PKG		:= $(BUILD_DIR)/$(PROJECT_NAME).pkg
-DISTRIBUTION_PKG	:= $(DIST_DIR)/$(PROJECT_NAME)-$(VERSION).pkg
+DISTRIBUTION_PKG	:= $(DIST_DIR)/$(PROJECT_NAME).pkg
 
 ifndef PKG_SIGN_IDENTITY
 $(error PKG_SIGN_IDENTITY is not set)
@@ -32,3 +32,5 @@ $(DISTRIBUTION_PKG):
 		--quiet \
 		"$@"
 	rm -rf "$(BUILD_DIR)" "$(PAYLOAD_DIR)"
+
+.PHONY: $(DISTRIBUTION_PKG)
