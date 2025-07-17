@@ -29,5 +29,5 @@ the package will leave an install receipt
 
 ## Usage
 
-1. Download the [latest package](https://github.com/bjoernalbers/remove-microsoft-remote-desktop/releases/latest)
+1. Download the [latest package](https://github.com/bjoernalbers/remove-microsoft-remote-desktop/releases/latest/download/remove-microsoft-remote-desktop.pkg)
 2. Deploy the package to your fleet, i.e. with [Munki](https://www.munki.org/munki/) or your MDM
