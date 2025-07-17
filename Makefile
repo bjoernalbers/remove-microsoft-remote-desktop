@@ -7,8 +7,8 @@ BUILD_DIR		:= $(shell mktemp -d)
 COMPONENT_PKG		:= $(BUILD_DIR)/$(PROJECT_NAME).pkg
 DISTRIBUTION_PKG	:= $(PROJECT_NAME).pkg
 
-ifndef PKG_SIGN_IDENTITY
-$(error PKG_SIGN_IDENTITY is not set)
+ifndef APPLE_INSTALLER_IDENTITY
+$(error APPLE_INSTALLER_IDENTITY is not set)
 endif
 
 ifeq ($(strip $(VERSION)),)
@@ -20,13 +20,13 @@ build:
 		--identifier "$(IDENTIFIER)" \
 		--version "$(VERSION)" \
 		--scripts "$(SCRIPTS_DIR)" \
-		--sign "$(PKG_SIGN_IDENTITY)" \
+		--sign "$(APPLE_INSTALLER_IDENTITY)" \
 		--quiet \
 		--root "$(PAYLOAD_DIR)" \
 		"$(COMPONENT_PKG)"
 	productbuild \
 		--package "$(COMPONENT_PKG)" \
-		--sign "$(PKG_SIGN_IDENTITY)" \
+		--sign "$(APPLE_INSTALLER_IDENTITY)" \
 		--quiet \
 		"$(DISTRIBUTION_PKG)"
 	rm -rf "$(BUILD_DIR)" "$(PAYLOAD_DIR)"
