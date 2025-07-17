@@ -16,7 +16,7 @@ ifeq ($(strip $(VERSION)),)
 $(error No git tag found to determine version)
 endif
 
-$(DISTRIBUTION_PKG):
+build:
 	pkgbuild \
 		--identifier "$(IDENTIFIER)" \
 		--version "$(VERSION)" \
@@ -30,7 +30,7 @@ $(DISTRIBUTION_PKG):
 		--package "$(COMPONENT_PKG)" \
 		--sign "$(PKG_SIGN_IDENTITY)" \
 		--quiet \
-		"$@"
+		"$(DISTRIBUTION_PKG)"
 	rm -rf "$(BUILD_DIR)" "$(PAYLOAD_DIR)"
 
-.PHONY: $(DISTRIBUTION_PKG)
+.PHONY: build
